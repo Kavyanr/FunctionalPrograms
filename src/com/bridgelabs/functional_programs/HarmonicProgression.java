@@ -1,5 +1,5 @@
 package com.bridgelabs.functional_programs;
-import com.bridgelabz.functionalutil.FunctionalUtil;
+import com.bridgelabs.functionalutil.FunctionalUtil;
 
 public class HarmonicProgression {
 
