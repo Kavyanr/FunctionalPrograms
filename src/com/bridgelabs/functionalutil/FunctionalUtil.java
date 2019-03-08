@@ -25,21 +25,24 @@ public class FunctionalUtil {
 			{
 				int count=0,i=1;
 				Random t= new Random();
-				int j=t.nextInt(50);
 				
-				while( i<=n)
+				
+				for(i=1;i<=n;i++)
 				{
+					int j=t.nextInt(50);
 					if( j!=t.nextInt(50))
 					{
 						System.out.println( t.nextInt(50));
 
-						t.nextInt(50);
+						t.nextInt(5);
 						count++;
 					}
-					i++;
+
+				
 				}
 				System.out.println("Total number of coupons:  " + count);
 				
+			
 			}
 			
 			//POWER OF 2
@@ -200,7 +203,60 @@ public class FunctionalUtil {
 					long timeElapsed = endTime - startTime;
 					System.out.println("Execution time in milliseconds:" + timeElapsed/1000);
 			}
-		}
+			
+			//2d array
+			
+			public static void isDimension(int m,int n)
+			{
+				int i,j,a[][]=new int[20][20];
+				for(i=0;i<m;i++)
+				{
+					for(j=0;j<n;j++)
+					{
+						a[i][j]=FunctionalUtil.inputinteger();
+					}
+				}
+				System.out.println("matrix form:");
+			       for(i=0;i<m;i++)
+			        {
+			        	for(j=0;j<n;j++)
+			        	{
+			        		System.out.print(a[i][j] + " ");
+			        	}
+			        	System.out.println();
+			        }
+			}
+			
+			//TRIPLETS
+			public static void isTriplets(int a[],int n,int sum)
+			{
+				int i,j,k;
+				for(i=0;i<n-2;i++)
+				{
+					for(j=i+1;j<n-1;j++)
+					{
+						for(k=j+1;k<n;k++)
+						{
+							if(a[i]+a[j]+a[k]==sum)
+								System.out.println("["+a[i]+" " +a[j]+ " " + a[k]+"]");
+							
+						}
+					}
+				}
+				
+					
+			}
+			
+			//EUCLIDEAN DISTANCE 
+			public static double isDistance(int x,int y)
+			{
+			  
+				double distance= (Math.sqrt((x*x)+(y*y)));
+				return distance;
+			}
+			
+}
+			
 
 	
 
