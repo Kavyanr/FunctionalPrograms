@@ -3,6 +3,8 @@ package com.bridgelabs.functionalutil;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class FunctionalUtil {
@@ -63,13 +65,13 @@ public class FunctionalUtil {
 			}
 			
 			//REPLACE
-			public static void Username(String s2)
+			public static String Username(String s1,String user)
 			 {
-				 
-				 if(s2.length()>=3)
-					 System.out.println( "hello " + s2 + ", how was the day??");
-				 else
-					 System.out.println( "Invalid user");
+				 final String username="<<username>>";
+				 Pattern p=Pattern.compile(username);
+				 Matcher m=p.matcher(s1);
+				 String result=m.replaceFirst(user);
+				return result;
 			 }
 
 			//HARMONIC PROGRESSION
@@ -255,7 +257,15 @@ public class FunctionalUtil {
 				return distance;
 			}
 			
-}
+			//WIND CHILL
+			public static void isTemperature(double t, double v)
+			{
+			
+				double w= 35.74 + 0.6215*t + (0.4275*t - 35.75) * Math.pow(v, 0.16);
+				 System.out.println("Wind chill  = " + w);
+				
+			}
+			}
 			
 
 	
