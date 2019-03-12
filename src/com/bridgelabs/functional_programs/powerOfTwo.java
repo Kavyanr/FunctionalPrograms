@@ -3,16 +3,14 @@ package com.bridgelabs.functional_programs;
 import com.bridgelabs.functionalutil.FunctionalUtil;
 
 public class powerOfTwo {
-    public static void main(String[] args)
+	public static void main(String[] args)
 	{
-		System.out.println("Enter the value of n");
-		int n=FunctionalUtil.inputinteger();
+
+		int n=Integer.parseInt(args[0]);
 		System.out.println("Powers of 2 that are less than 2^" +n);	
-		int power=FunctionalUtil.isPower(n);
-		if(power==0)
-			System.err.println("Overflow");
-		else
-			System.out.println(power);
+		FunctionalUtil.isPower(n);
+
+
 
 	}
 }

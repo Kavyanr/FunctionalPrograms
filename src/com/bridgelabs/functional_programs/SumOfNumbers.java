@@ -15,6 +15,7 @@ public class SumOfNumbers {
         	  a[i]=FunctionalUtil.inputinteger();
           }
           FunctionalUtil.isTriplets(a, size, 0);
+          
 	}
 
 }

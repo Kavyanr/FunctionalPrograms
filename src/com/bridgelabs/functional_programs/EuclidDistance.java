@@ -10,7 +10,7 @@ public class EuclidDistance {
 		int y=Integer.parseInt(args[1]);
 		double distance=FunctionalUtil.isDistance(x, y);
 		
-		System.out.println("The distance from ("+x+y+") to origin="+distance);
+		System.out.println("The distance from ("+x+ "," +y+") to origin="+distance);
 	}
   
 }

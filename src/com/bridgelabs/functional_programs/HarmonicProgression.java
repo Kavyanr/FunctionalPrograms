@@ -10,7 +10,7 @@ public class HarmonicProgression {
 		System.out.println("Enter n value");
 		int n=FunctionalUtil.inputinteger();
         FunctionalUtil.Check_progression(n);
-
+       
 	}
 	
 }
