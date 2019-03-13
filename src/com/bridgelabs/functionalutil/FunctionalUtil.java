@@ -28,23 +28,23 @@ public class FunctionalUtil {
 		int count=0,i=0,j=0;
 		int a[]=new int[n];
 		Random t= new Random();
-		
-        for(i=0;i<n;i++)
+
+		for(i=0;i<n;i++)
 		{
-        	a[i]=t.nextInt(n);
-        	 System.out.println(a[i] + " ");
+			a[i]=t.nextInt(n);
+			System.out.println(a[i] + " ");
 		}
-       
-        System.out.print("Number of distinct coupons:");
-       for(i=0;i<n;i++)
-       {
-    	   for(j=0;j<i;j++)
-    	       if(a[i]==a[j])
-    		    	break;
-    		    if(i==j)
-    		        count++;
-       }
-      return count;
+
+		System.out.print("Number of distinct coupons:");
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<i;j++)
+				if(a[i]==a[j])
+					break;
+			if(i==j)
+				count++;
+		}
+		return count;
 	}
 
 
@@ -71,7 +71,7 @@ public class FunctionalUtil {
 			}
 			System.out.println(sum);
 		}
-		
+
 	}
 
 	//BRUTE FORCE
@@ -192,7 +192,7 @@ public class FunctionalUtil {
 	{
 		long timeElapsed = endTime - startTime;
 		return timeElapsed;
-		
+
 	}
 
 	//2d array
@@ -272,29 +272,29 @@ public class FunctionalUtil {
 			}
 		}
 	}
-	
+
 	//PERMUTATION
-	 public static void permutation(String input){
-         permutation("", input);
-  }
+	public static void permutation(String input){
+		permutation("", input);
+	}
 
-  
-  private static void permutation(String perm, String word) {
-       if (word.isEmpty()) {
-           System.err.println(perm + word);
 
-       } else {
-           for (int i = 0; i <word.length(); i++) {
-               permutation(perm + word.charAt(i), word.substring(0, i) 
-                                       + word.substring(i + 1, word.length()));
-           }
-       }
+	private static void permutation(String perm, String word) {
+		if (word.isEmpty()) {
+			System.err.println(perm + word);
 
-   }
+		} else {
+			for (int i = 0; i <word.length(); i++) {
+				permutation(perm + word.charAt(i), word.substring(0, i) 
+						+ word.substring(i + 1, word.length()));
+			}
+		}
+
+	}
 }
-	
-	
-	
+
+
+
 
 
 
