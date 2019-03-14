@@ -12,7 +12,6 @@ public class Palindrome {
 		int max=Algorithm_Util.inputinteger();
 		System.out.println("Generated prime numbers between "+min+ " and "+ max+ "  are:");
 		int result=Algorithm_Util.isPrime(min, max);
-		System.out.println("");
 		System.out.println("Total number of elements:"+result);
 		}
 	}

@@ -53,16 +53,17 @@ public class Algorithm_Util {
 		    	}
 		    	i++;
 		    }
+		   
 		    if(count == 0 && num != 1 )
 		    {
-		    	System.out.print(num +" ");
+		    	System.out.print(num + " ");
 				k++;
+		    	
 		    }
 		    num++;
 		}
 	   return k;
-	
-	}
+	   	}
 	
 	//PALINDROME
 	public static void isPalindrome(int min,int max)
@@ -82,5 +83,75 @@ public class Algorithm_Util {
 		}
 		reverse=0;
 	}
+	//INSERTION SORT FOR INTEGERS
+	public static void insertint(int[] array) 
+	{
+		int i=0,j=0,w,temp;
+		for(i=0;i<array.length;i++)
+		{
+			for(j=0;j<=i;j++)
+			{
+				if(array[j]>array[i])
+				{
+					temp=array[j];
+					array[j]=array[i];
+					for(w=i;w>j+1;w--)
+					    array[w]=array[w-1];	
+                    array[w]=temp;
+			}
+		}
+	}
+		for(int kl:array)
+			System.out.print(kl + " ");
+	}
+	//INSERTION SORT FOR STRING
+	public static void insertString(String str)
+	{
+		char[] array=str.toCharArray();
+		int i=0,j=0,w;
+		char temp;
+		for(i=0;i<array.length;i++)
+		{
+			for(j=0;j<=i;j++)
+			{
+				if(array[j]>array[i])
+				{
+					 temp=array[j];
+					array[j]=array[i];
+					for(w=i;w>j+1;w--)
+					    array[w]=array[w-1];	
+                    array[w]=temp;
+			}
+		}
+	}
+		
+		for(int kl=0;kl<array.length;kl++)
+			System.out.println( array[kl]+" ");
+		
+	}
+	
+	public static void isBubble(int[] array,int n)
+	{
+		int i,temp;
+		for( i=0;i<n-1;i++)
+		{
+			for(int j=0;j<n-i-1;j++)
+			{
+				if(array[j]>array[j+1])
+				{
+					 temp=array[j];
+					 array[j]=array[j+1];
+					 array[j+1]=temp;
+					
+				}
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			System.out.print(array[i] + " ");
+		}
+	}
+	
 	
 }
+
