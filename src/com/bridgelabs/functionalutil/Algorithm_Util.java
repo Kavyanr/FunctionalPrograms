@@ -53,35 +53,32 @@ public class Algorithm_Util {
 		    	}
 		    	i++;
 		    }
-		   
 		    if(count == 0 && num != 1 )
-		    {
-		    	System.out.print(num + " ");
-				k++;
-		    	
-		    }
+		    {   System.out.print(num + " ");
+		    k++;
+		     }
 		    num++;
-		}
-	   return k;
+		} 
+	 return k;
 	   	}
 	
 	//PALINDROME
-	public static void isPalindrome(int min,int max)
+	//public static void Palin(int[] arr)
 	{
-         int reverse=0;
-		for(int i=min;i<=max;i++)
+      //   int reverse=0;
+		//for(int i=1;i<=arr.length;i++)
 		{
-			int number=min;
-			while(number>0)
+			//int number=1;
+			//while(number>0)
 			{
-				int remainder=number%10;
-			     reverse=reverse*10+remainder;
-			     number=number/10;
+				//int remainder=number%10;
+			     //reverse=reverse*10+remainder;
+			     //number=number/10;
 			}
-		if(reverse==i)
-			System.out.print(number+ " ");
+		//if(reverse==i)
+			//System.out.print(number+ " ");
 		}
-		reverse=0;
+		//reverse=0;
 	}
 	//INSERTION SORT FOR INTEGERS
 	public static void insertint(int[] array) 
@@ -129,6 +126,7 @@ public class Algorithm_Util {
 			System.out.println( array[kl]+" ");
 		
 	}
+	//BUBBLE SORT FOR INTEGER
 	
 	public static void isBubble(int[] array,int n)
 	{
@@ -142,7 +140,29 @@ public class Algorithm_Util {
 					 temp=array[j];
 					 array[j]=array[j+1];
 					 array[j+1]=temp;
-					
+				}
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			System.out.print(array[i] + " ");
+		}
+	}
+	//BUBBLE SORT FOR STRING
+	public static void isBubbleString(String str)
+	{
+		char[] array=str.toCharArray();
+		char temp;
+		int i,n=array.length;
+		for( i=0;i<n-1;i++)
+		{
+			for(int j=0;j<n-i-1;j++)
+			{
+				if(array[j]>array[j+1])
+				{
+					 temp=array[j];
+					 array[j]=array[j+1];
+					 array[j+1]=temp;
 				}
 			}
 		}
@@ -152,6 +172,46 @@ public class Algorithm_Util {
 		}
 	}
 	
+	
+	public static boolean isPalindrome(int[] array) {
+		int length = array.length;
+		for (int index = 0; index < array.length; index++) {
+			// get the element from the start
+			int start = array[index];
+			// get corresponding element from end
+			int end = array[--length];
+			// check if elements till the middle have been compared
+			if (length < index) {
+				return true;
+			}
+			// if start element is not the same as end element, the array is not
+			// palindrome
+			if (start != end) {
+				return false;
+			}
+		}
+		// if the control reaches here, means all the elements were same 
+	return true;
+	}
+	
+	//BINARY SEARCH FOR INTEGERS
+	public static int isBinaryInt(int[] arr,int low,int high,int key)
+	{
+		int mid = 0;
+		while(low<=high)
+		{
+			 mid=(low+high)/2;
+			if(arr[mid]>key)
+				 low=mid+1;
+			else if(arr[mid]>key)
+				high=mid-1;
+			else
+			    return mid;
+
+		}
+		return -1;
+		
+	}
 	
 }
 
