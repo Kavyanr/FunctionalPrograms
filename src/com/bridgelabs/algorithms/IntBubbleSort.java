@@ -1,7 +1,6 @@
 package com.bridgelabs.algorithms;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,13 +13,12 @@ public class IntBubbleSort {
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter size: ");
 		int n =scanner.nextInt();
-		ArrayList<Integer> arrList = new ArrayList<Integer>(n);
+		List<Integer> nos = new ArrayList<>();
 		System.out.println("Enter elements:");
 
 		for(int i=0;i<n;i++){
-			arrList.add(scanner.nextInt());
+			nos.add(scanner.nextInt());
 		}
-		Algorithm_Util.bubble(arrList,n);
-
+		Algorithm_Util.bubble(nos, n); 
 	}
 }
