@@ -9,6 +9,13 @@ public class Algorithm_Util {
 		return scanner.nextInt();
 
 	}
+	public static double inputDouble() {
+		return scanner.nextDouble();
+	}
+
+	public static char inputChar() {
+		return scanner.next().charAt(0);
+	}
 
 	public static String inputString() {
 		return scanner.nextLine();
@@ -20,6 +27,7 @@ public class Algorithm_Util {
 		while (min <= max) {
 			count = 0;
 			i = 2;
+			//Divisors always lies between 0 to (number/2)
 			while (i <= min / 2) {
 				if (min % i == 0) {
 					count++;
@@ -33,17 +41,13 @@ public class Algorithm_Util {
 		}
 	}
 
-	public static double inputDouble() {
-		return scanner.nextDouble();
-	}
 
-	public static char inputChar() {
-		return scanner.next().charAt(0);
-	}
 
 	//ANAGRAM
-	public static boolean areAnagram(String first, String second) {
+	public static boolean isAnagram(String str1, String str2) {
 		int i;
+		String first=str1.replaceAll("\\s"," ");
+		String second=str1.replaceAll("\\s"," ");
 		if (first.length() != second.length())
 			return false;
 
@@ -59,32 +63,14 @@ public class Algorithm_Util {
 
 	}
 
-	// PALINDROME
-	// public static void Palin(int[] arr)
-	{
-		// int reverse=0;
-		// for(int i=1;i<=arr.length;i++)
-		{
-			// int number=1;
-			// while(number>0)
-			{
-				// int remainder=number%10;
-				// reverse=reverse*10+remainder;
-				// number=number/10;
-			}
-			// if(reverse==i)
-			// System.out.print(number+ " ");
-		}
-		// reverse=0;
-	}
 
 	// INSERTION SORT FOR INTEGERS
-	public static void insertint(int[] array) {
-		int i = 0, j = 0, w, temp;
+	public static <T extends Comparable<T>> void insertionSort(T[] array) {
+		int i = 0, j = 0, w;
 		for (i = 0; i < array.length; i++) {
 			for (j = 0; j <= i; j++) {
-				if (array[j] > array[i]) {
-					temp = array[j];
+				if (array[j].compareTo(array[i])>0) {
+					T temp = array[j];
 					array[j] = array[i];
 					for (w = i; w > j + 1; w--)
 						array[w] = array[w - 1];
@@ -92,40 +78,43 @@ public class Algorithm_Util {
 				}
 			}
 		}
-		for (int kl : array)
+		for (T kl : array)
 			System.out.println(kl + " ");
 		System.out.println(" ");
 	}
 
-	// INSERTION SORT FOR STRING
-	public static void insertString(String str) {
-		char[] array = str.toCharArray();
+	// INSERTION SORT FOR STRING LIST
+	public static void insertString(List <String> array,int n) {
+
 		int i = 0, j = 0, w;
-		char temp;
-		for (i = 0; i < array.length; i++) {
+		String temp;
+		for (i = 0; i < array.size(); i++) {
 			for (j = 0; j <= i; j++) {
-				if (array[j] > array[i]) {
-					temp = array[j];
-					array[j] = array[i];
+				if (array.get(j).compareTo(array.get(i))>0)
+				{
+					temp = array.get(j);
+					array.set(j, array.get(i));
 					for (w = i; w > j + 1; w--)
-						array[w] = array[w - 1];
-					array[w] = temp;
+						array.set(w, array.get(w-1));
+					array.set(w, temp);
 				}
 			}
 		}
 
-		for (int kl = 0; kl < array.length; kl++)
-			System.out.print(array[kl] + " ");
+		for (String k:array)
+			System.out.print(k + " ");
 		System.out.println(" ");
 	}
 	// BUBBLE SORT FOR INTEGER
 
-	public static void isBubble(int[] array, int n) {
-		int i, temp;
-		for (i = 0; i < n - 1; i++) {
+	public static <T extends Comparable <T>> void BubbleSort(T[] array)
+	{
+		int i;
+		int n=array.length;
+		for (i = 0; i < n-1; i++) {
 			for (int j = 0; j < n - i - 1; j++) {
-				if (array[j] > array[j + 1]) {
-					temp = array[j];
+				if (array[j].compareTo(array[j + 1])>0) {
+					T temp = array[j];
 					array[j] = array[j + 1];
 					array[j + 1] = temp;
 				}
@@ -155,68 +144,29 @@ public class Algorithm_Util {
 		}
 	}
 
-	public static boolean isPalindrome(int[] array) {
-		int length = array.length;
-		for (int index = 0; index < array.length; index++) {
-			// get the element from the start
-			int start = array[index];
-			// get corresponding element from end
-			int end = array[--length];
-			// check if elements till the middle have been compared
-			if (length < index) {
-				return true;
-			}
-			// if start element is not the same as end element, the array is not
-			// palindrome
-			if (start != end) {
-				return false;
-			}
-		}
-		// if the control reaches here, means all the elements were same
-		return true;
-	}
+
 
 	// BINARY SEARCH FOR INTEGERS
-	public static void isBinaryInt(int[] arr, int low, int high, int key) {
+	public static <T extends Comparable<T>> void BinarySearch(T[] arr,T key) {
 
-		int mid = 0;
+		int low=0,high=arr.length-1,mid = 0;
 		mid = (low + high) / 2;
 		while (low <= high) {
-			if (arr[mid] < key)
+			if (key.compareTo(arr[mid])>0)
 				low = mid + 1;
-			else if (arr[mid] == key) {
+			else if (arr[mid].equals(key)) {
 				System.out.println("key element found at index " + mid);
 				break;
 			} else
 				high = mid - 1;
 
-			mid = (low + high) / 2;
-		}
-		if (low > high)
-			System.out.println("key element not found");
-
-	}
-	//BINARY SEARCH FOR STRING
-
-	public static void isBinaryString(String string, int low, int high, int value) {
-		char[] arr = string.toCharArray();
-		int mid = 0;
 		mid = (low + high) / 2;
-		while (low <= high) {
-			if (arr[mid] < value)
-				low = mid + 1;
-			else if (arr[mid] == value) {
-				System.out.println("key element found at index " + mid);
-				break;
-			} else
-				high = mid - 1;
-
-			mid = (low + high) / 2;
 		}
 		if (low > high)
 			System.out.println("key element not found");
-	}
 
+	}
+	
 	// BUBBLE SORT USING LIST
 	public static void bubble(List<Integer> nos, int n) {
 		int i, temp;
@@ -237,13 +187,13 @@ public class Algorithm_Util {
 		}
 
 	}
-//TEMPERATURE CONVERSION
+	//TEMPERATURE CONVERSION
 	public static void temperatureConversion(double temperature, int choice) {
 
 		switch (choice) {
 		case 1:
 			double Fahrenheit = (temperature * 9 / 5) + 32;
-		   System.out.println(Fahrenheit + " F");
+			System.out.println(Fahrenheit + " F");
 		case 2:
 			double Celsius = (temperature - 32) * 5 / 9;
 			System.out.println(Celsius + " C");
@@ -275,7 +225,7 @@ public class Algorithm_Util {
 		return t;
 	}
 
-//DECIMAL TO BINARY CONVERSION
+	//DECIMAL TO BINARY CONVERSION
 	public static void toBinary(int num)
 	{
 		int i, power=0;
@@ -283,14 +233,104 @@ public class Algorithm_Util {
 		while(num>0)
 		{
 			array[power]=num%2;
+			power++;
 			num=num/2;
 		}
-		power++;
-	  for(i=power-1;i>=0;i--)
-	  {
-		  System.out.println(array[i]);
-	  }
+
+		for(i=power-1;i>=0;i--)
+		{
+			System.out.println(array[i]);
+		}
+	}
+
+	//DAYS OF WEEK
+	public static void dayOfWeek(int d,int m,int y)
+	{
+		int y0 = y-(14-m) / 12;
+
+	    int	x = y0 + (y0/4)-(y0/100)+(y0/400);
+
+		int	 m0 = m + 12 * ((14-m) / 12)-2;
+
+		int d0 = ((d+x+(31*m0))/12)%7;
+		System.out.println("Day of the week: "+d0);
+	}
+	//SWAP NIBBLES
+	public static int swapNibbles(int x) {
+		{ 
+			return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
+		}
+	}
+	//IS POWER OF 2
+	public static boolean isPowerOfTwo(int res)
+	{
+		return (int)(Math.ceil((Math.log(res) / Math.log(2)))) ==  
+				(int)(Math.floor(((Math.log(res) / Math.log(2))))); 
+	}
+
+   //MERGE SORT
+	public static String[] merge(String[] array)
+	{
+		if (array.length>=2)
+		{
+			String left[]= new String[array.length/2];
+			String right[]= new String[array.length-(array.length/2)];
+			for( int i=0;i<left.length;i++)
+			{
+				left[i]= array[i];
+			}
+			for( int j=0;j<right.length;j++)
+			{
+				right[j]= array[j+(array.length/2)];
+			}
+			merge(left);
+			merge(right);
+			mergeSort(array,left,right);		
+		}
+		return array;
 	}
 	
 	
+	public static void mergeSort(String[] array, String[] left, String[] right)
+	{
+		int a=0,b=0;
+		for(int i=0;i<array.length;i++)
+			if(b>=right.length ||
+			(a< left.length && left[a].compareToIgnoreCase(right[b])<0))
+			{
+				array[i]=left[a];
+				a++;
+			}
+			else
+			{
+
+				array[i]=right[b];
+				b++;	
+			}
+		for(String str:array)
+		 {
+			 System.out.println(array);
+		 }
+	}
+	public static int vendingMachine(int money,int notes[])
+	{
+		int rem,i=0,result=0,total=0;
+		if(money==0)
+			return -1;
+		else
+		{
+			if(money>=notes[i])
+			{
+				result=money/notes[i];
+				rem=money%notes[i];
+				money=rem;
+				total=total+result;
+				System.out.println(notes[i]+   " Notes ---> " +result );
+			}
+			i++;
+		}
+		return result;
+	}
 }
+
+
