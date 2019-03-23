@@ -1,5 +1,7 @@
 package com.bridgelabs.functionalutil;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.*;
 
 public class Algorithm_Util {
@@ -18,12 +20,13 @@ public class Algorithm_Util {
 	}
 
 	public static String inputString() {
-		return scanner.nextLine();
+		return scanner.next();
 	}
 
 	// GENERATING PRIME NUMBERS
 	public static void isPrime(int min, int max) {
-		int i, count;
+		int i, count,k=0;
+		List<Integer> list=new ArrayList<Integer>();
 		while (min <= max) {
 			count = 0;
 			i = 2;
@@ -31,14 +34,21 @@ public class Algorithm_Util {
 			while (i <= min / 2) {
 				if (min % i == 0) {
 					count++;
+					
 					break;
 				}
 				i++;
 			}
 			if (count == 0 && min != 1)
-				System.out.print(min + " ");
+			{ 
+					list.add(min);
+
+			}	
 			min++;
 		}
+		for(int kl:list)
+			System.out.println(kl + " ");
+		
 	}
 
 
@@ -94,8 +104,8 @@ public class Algorithm_Util {
 				{
 					temp = array.get(j);
 					array.set(j, array.get(i));
-					for (w = i; w > j + 1; w--)
-						array.set(w, array.get(w-1));
+					for (w = i; w > j + 1; w--) {
+						array.set(w, array.get(w-1));}+
 					array.set(w, temp);
 				}
 			}
@@ -105,7 +115,7 @@ public class Algorithm_Util {
 			System.out.print(k + " ");
 		System.out.println(" ");
 	}
-	// BUBBLE SORT FOR INTEGER
+	// BUBBLE SORT 
 
 	public static <T extends Comparable <T>> void BubbleSort(T[] array)
 	{
@@ -113,7 +123,7 @@ public class Algorithm_Util {
 		int n=array.length;
 		for (i = 0; i < n-1; i++) {
 			for (int j = 0; j < n - i - 1; j++) {
-				if (array[j].compareTo(array[j + 1])>0) {
+				if (array[j].compareTo(array[j+1])>0) {
 					T temp = array[j];
 					array[j] = array[j + 1];
 					array[j + 1] = temp;
@@ -121,7 +131,7 @@ public class Algorithm_Util {
 			}
 		}
 		for (i = 0; i < n; i++) {
-			System.out.print(array[i] + " ");
+			System.out.println(array[i] + " ");
 		}
 	}
 
@@ -146,7 +156,7 @@ public class Algorithm_Util {
 
 
 
-	// BINARY SEARCH FOR INTEGERS
+	// BINARY SEARCH 
 	public static <T extends Comparable<T>> void BinarySearch(T[] arr,T key) {
 
 		int low=0,high=arr.length-1,mid = 0;
@@ -163,8 +173,9 @@ public class Algorithm_Util {
 		mid = (low + high) / 2;
 		}
 		if (low > high)
+		{
 			System.out.println("key element not found");
-
+		}
 	}
 	
 	// BUBBLE SORT USING LIST
@@ -183,7 +194,7 @@ public class Algorithm_Util {
 			}
 		}
 		for (int k:nos) {
-			System.out.print(k+ " ");
+			System.out.println(k+ " ");
 		}
 
 	}
@@ -331,6 +342,53 @@ public class Algorithm_Util {
 		}
 		return result;
 	}
-}
+	//find the number
+	public static int find(int low, int high)
+	{
+		int mid;
+		while(low!=high)
+		{
+			mid=(low+high)/2;
+			System.out.println("Enter 1 if the number is between " + low + " - "+ mid );
+			System.out.println("Enter 2 if number is between " +(mid+1) + "-" + high);
+			int c=Algorithm_Util.inputinteger();
+			if(c==1)
+				high=mid;
+			else
+				low=mid+1;
+		}
+		return low;
+		}
+	//palindrome
+	public static void primePallindrome() {
+		System.out.println();
+		boolean b;
+		for (int j = 2; j <= 1000; j++) {
+			b = true;
+			for (int i = 2; i < j / 2; i++) {
+				if (j % i == 0) {
+					b = false;
+					break;
+				}
+			}
+			if (b && isPallindrome(j))
+				System.out.print(j + " ");
+		}
+	}
 
+	public static boolean isPallindrome(List<Integer> List) {
+		int temp = n;
+		int sum = 0;
+		while (temp != 0) {
+			int r = temp % 10;
+			sum = sum * 10 + r;
+			temp = temp / 10;
+		}
+		if (sum == n) {
+			return true;
+		}
+		return false;
+	}
+
+}
 

@@ -6,8 +6,8 @@ import com.bridgelabs.functionalutil.FunctionalUtil;
 public class MergeSort {
 
 	public static void main(String[] args)  {
-		int N,i;
-		
+		int i;
+		long startTime = System.nanoTime();
 		System.out.println("Enter the array size:");
 		int n=Algorithm_Util.inputinteger();
 		String[] array=new String[n];
@@ -19,7 +19,9 @@ public class MergeSort {
 		Algorithm_Util.merge(array);
 		for(String sort:array)
 			System.out.println(sort);
-		
+		long endTime = System.nanoTime();
+		long elapsed_time = FunctionalUtil.Watch(startTime, endTime);
+		System.out.println("The time taken to perform merge sort operation is "+ elapsed_time+" ns");
 
 	}
 
