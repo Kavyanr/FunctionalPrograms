@@ -7,9 +7,9 @@ public class DimensionalArray {
 		
 		
 		System.out.println("Number of rows:");
-		int m=FunctionalUtil.inputinteger();
+		int m=FunctionalUtil.inputInteger();
 		System.out.println("Number of columns:");
-		int n=FunctionalUtil.inputinteger();
+		int n=FunctionalUtil.inputInteger();
 		System.out.println("Enter the array values:");
 		
 		FunctionalUtil.isDimension(m, n);

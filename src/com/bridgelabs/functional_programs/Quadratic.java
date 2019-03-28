@@ -8,11 +8,11 @@ public class Quadratic {
 	public static void main(String[] args)
 	{
 		System.out.println("Enter the value of a");
-		int a=FunctionalUtil.inputinteger();
+		int a=FunctionalUtil.inputInteger();
 		System.out.println("Enter the value of b");
-		int b=FunctionalUtil.inputinteger();
+		int b=FunctionalUtil.inputInteger();
 		System.out.println("Enter the value of c");
-		int c=FunctionalUtil.inputinteger();
+		int c=FunctionalUtil.inputInteger();
 		FunctionalUtil.isQuadratic(a, b, c);
 		
 	}

@@ -11,7 +11,7 @@ public class FunctionalUtil {
 
 	static Scanner scanner=new Scanner(System.in);
 
-	public static int inputinteger() {
+	public static int inputInteger() {
 		return scanner.nextInt();
 
 	}
@@ -60,7 +60,7 @@ public class FunctionalUtil {
 	}
 
 	//HARMONIC PROGRESSION
-	public static void Check_progression(int n)
+	public static void checkProgression(int n)
 	{
 		float sum=0;
 		if(n!=0)
@@ -204,7 +204,7 @@ public class FunctionalUtil {
 		{
 			for(j=0;j<n;j++)
 			{
-				a[i][j]=FunctionalUtil.inputinteger();
+				a[i][j]=FunctionalUtil.inputInteger();
 			}
 		}
 		System.out.println("matrix form:");

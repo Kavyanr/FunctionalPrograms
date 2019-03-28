@@ -6,11 +6,11 @@ public class GamblerProgram {
 	public static void main(String[] args) {
 
 		System.out.println("Enterthe value for stake");
-		int stake  =FunctionalUtil.inputinteger();
+		int stake  =FunctionalUtil.inputInteger();
 		System.out.println("Enter the value for goal");
-		int goal   = FunctionalUtil.inputinteger(); 
+		int goal   = FunctionalUtil.inputInteger(); 
 		System.out.println("Enter the value for trials");
-		int trials = FunctionalUtil.inputinteger();
+		int trials = FunctionalUtil.inputInteger();
 		}
 }
 

@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-import com.bridgelabs.functionalutil.Algorithm_Util;
+import com.bridgelabs.functionalutil.AlgorithmUtil;
 
 public class BinarySearchWord {
 
@@ -28,10 +28,10 @@ public class BinarySearchWord {
 	    }
 	    System.out.println("  ");
 	    System.out.print("Sorted array:");
-	    Algorithm_Util.BubbleSort(string);
+	    AlgorithmUtil.BubbleSort(string);
 	    System.out.println("Enter the key element:");
-	    String key=Algorithm_Util.inputString();
-	    Algorithm_Util.BinarySearch(string, key);
+	    String key=AlgorithmUtil.inputString();
+	    AlgorithmUtil.BinarySearch(string, key);
 
 	}
 

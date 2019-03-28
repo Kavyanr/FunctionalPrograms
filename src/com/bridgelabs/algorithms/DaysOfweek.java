@@ -1,6 +1,6 @@
 package com.bridgelabs.algorithms;
 
-import com.bridgelabs.functionalutil.Algorithm_Util;
+import com.bridgelabs.functionalutil.AlgorithmUtil;
 
 public class DaysOfweek {
 
@@ -9,7 +9,7 @@ public class DaysOfweek {
 		int d=Integer.parseInt(args[0]);
 		int m=Integer.parseInt(args[1]);
 		int y=Integer.parseInt(args[2]);
-		Algorithm_Util.dayOfWeek(d, m, y);
+		AlgorithmUtil.dayOfWeek(d, m, y);
         
 	}
 

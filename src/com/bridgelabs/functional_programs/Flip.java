@@ -6,7 +6,7 @@ public class Flip {
 		public static void main (String[] args)
 		{
 			System.out.println("Enter the value for flips:");
-			int flips= FunctionalUtil.inputinteger();
+			int flips= FunctionalUtil.inputInteger();
 			FunctionalUtil.isflip(flips);
 			
 			

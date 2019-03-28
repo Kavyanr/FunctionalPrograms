@@ -1,20 +1,20 @@
 package com.bridgelabs.algorithms;
 
-import com.bridgelabs.functionalutil.Algorithm_Util;
+import com.bridgelabs.functionalutil.AlgorithmUtil;
 
 public class TemperatureConversion {
 
 	public static void main(String[] args) {
 		System.out.println("Enter the temperature:" );
-		double temperature=Algorithm_Util.inputDouble();
+		double temperature=AlgorithmUtil.inputDouble();
 		System.out.println("Enter your choice:");
-		int choice=Algorithm_Util.inputinteger();
+		int choice=AlgorithmUtil.inputinteger();
 		
 		if(choice==1)
 		      System.out.println("Converts Celsius to Fahrenheit: ");
 		 if(choice==2)
 		    	System.out.println("Converts Fahrenheit to Celsius:");
-		Algorithm_Util.temperatureConversion(temperature,choice);
+		AlgorithmUtil.temperatureConversion(temperature,choice);
 		
 	}
 

@@ -1,6 +1,6 @@
 package com.bridgelabs.algorithms;
 
-import com.bridgelabs.functionalutil.Algorithm_Util;
+import com.bridgelabs.functionalutil.AlgorithmUtil;
 
 public class Payment {
 
@@ -10,7 +10,7 @@ public class Payment {
 		P=Float.parseFloat(args[0]);
 		Y=Float.parseFloat(args[1]);
 		R=Float.parseFloat(args[2]);
-        Algorithm_Util.monthlyPayment(P, Y, R);
+        AlgorithmUtil.monthlyPayment(P, Y, R);
         
 
 	}

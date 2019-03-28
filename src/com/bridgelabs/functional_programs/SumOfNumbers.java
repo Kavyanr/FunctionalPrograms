@@ -7,12 +7,12 @@ public class SumOfNumbers {
 		// TODO Auto-generated method stub
          
           System.out.println("Enter array size:");
-          int size=FunctionalUtil.inputinteger();
+          int size=FunctionalUtil.inputInteger();
           int a[]= new int[size];
           System.out.println("Enter array elements");
           for(int i=0;i<size;i++)
           {
-        	  a[i]=FunctionalUtil.inputinteger();
+        	  a[i]=FunctionalUtil.inputInteger();
           }
           FunctionalUtil.isTriplets(a, size, 0);
           

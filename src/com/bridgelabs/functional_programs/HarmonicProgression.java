@@ -8,8 +8,8 @@ public class HarmonicProgression {
 	{
 		
 		System.out.println("Enter n value");
-		int n=FunctionalUtil.inputinteger();
-        FunctionalUtil.Check_progression(n);
+		int n=FunctionalUtil.inputInteger();
+        FunctionalUtil.checkProgression(n);
        
 	}
 	
