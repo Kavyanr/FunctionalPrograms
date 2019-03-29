@@ -2,10 +2,10 @@ package com.bridgelabs.functionalutil;
 
 public class Node<T> implements Comparable<T> {
 	     
-	  
+	    
 		private T value;
 	    private Node<T> nextRef;
-		public String key;	     
+		public String key;     
 	    public T getValue() {
 	        return value;
 	    }
@@ -30,5 +30,8 @@ public class Node<T> implements Comparable<T> {
 			// TODO Auto-generated method stub
 			return 0;
 		}
+		
+		
+		
 	    
 }

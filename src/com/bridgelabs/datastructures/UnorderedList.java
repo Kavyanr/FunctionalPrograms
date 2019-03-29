@@ -26,12 +26,8 @@ public class UnorderedList {
        
 		System.out.println("Enter the key value: ");
 		String key = DataStructureUtil.inputString();
-		boolean result=list.searchKey(key);
-		if(result==true)
-			list.addElement(key);
-		else
-			list.remove(key);
-		 
-		  
+		list.searchKey(list, key);
+         
+		list.traverse();  
 		 }
 }
