@@ -1,16 +1,17 @@
 package com.bridgelabs.functionalutil;
 
 public class Node<T> implements Comparable<T> {
-	     
-	    
-		private T value;
+	      
+		private String value;
 	    private Node<T> nextRef;
-		public String key;     
-	    public T getValue() {
+		public String key;   
+		
+		
+	    public String getValue() {
 	        return value;
 	    }
-	    public void setValue(T value) {
-	        this.value = value;
+	    public void setValue(String key2) {
+	        this.value = key2;
 	    }
 	    public Node<T> getNextRef() {
 	        return nextRef;
@@ -32,6 +33,4 @@ public class Node<T> implements Comparable<T> {
 		}
 		
 		
-		
-	    
 }

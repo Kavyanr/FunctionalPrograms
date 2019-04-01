@@ -1,0 +1,80 @@
+package com.bridgelabs.datastructures;
+
+import com.bridgelabs.functionalutil.DataStructureUtil;
+import com.bridgelabs.functionalutil.QueueBank;
+
+public class BankCashCounter {
+
+	public static void main(String[] args) {
+		int curBalance = 10000;
+		double amount = 0;
+		boolean notDone = true;
+		QueueBank<Integer> d = new QueueBank<Integer>();
+		
+		while (d.capacity > 0) {
+			d.enque(d.capacity);
+			System.out.println();
+			System.out.println("------------Banking Cash Counter-----------");
+			System.out.println("1.Deposit");
+			System.out.println("2.Withdraw");
+			System.out.println("3.Check Balance ");
+			System.out.println("4.Exit");
+			System.out.println();
+			System.out.println("Enter your choice: ");
+			int answer = DataStructureUtil.inputinteger();
+			switch (answer) {
+			case 1:
+				System.out.println("How much do you want to deposit? ");
+				amount = DataStructureUtil.inputDouble();
+				System.out.println(amount);
+				curBalance = Deposit(amount, curBalance);
+				System.out.println("Your Deposit is: " + amount);
+				System.out.println("Your Balance is: " + curBalance);
+				break;
+			case 2:
+				System.out.println("How much do you want to withdraw? ");
+				amount = DataStructureUtil.inputDouble();
+				System.out.println(amount);
+				if (amount > curBalance) {
+					System.out.println("You cannot overdraw your account.Try again.");
+					break;
+				} else {
+					curBalance = Withdrawal(amount, curBalance);
+					System.out.println("Your Withdrawal is: " + amount);
+					System.out.println("Your Balance is: " + curBalance);
+					break;
+				}
+			case 3:
+				checkBalance(curBalance);
+				break;
+			case 4:
+				notDone = false;
+				int c = d.deque();
+				System.out.println("The Number of People in Queue is: " + c);
+				break;
+			default:
+				System.out.println("Not Valid input, try again.");
+				break;
+			}
+		}
+		System.out.println("Thank you and have a nice day!");
+
+	}
+
+
+	public static int Deposit(double amount, int curBalance) {
+		curBalance += amount;
+		return curBalance;
+	}
+
+	public static int Withdrawal(double amount, int curBalance) {
+		curBalance -= amount;
+		return curBalance;
+	}
+
+	public static void checkBalance(int curBalance) {
+		System.out.println("Your current balance is: " + curBalance);
+
+	}
+
+}

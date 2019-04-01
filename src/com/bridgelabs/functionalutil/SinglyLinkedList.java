@@ -10,16 +10,17 @@ public class SinglyLinkedList<T> {
 	private Node<T> tail;
 	private int size = 0;
 	private String key;
+	static String[] str = new String[100];
+	static SinglyLinkedList newList = new SinglyLinkedList();
 
 	public boolean isEmpty() {
 		return head == null;
 	}
 
-	public String addElement(T element) {
+	public String addElement(String key) {
 		Node<T> nd = new Node<T>();
-		nd.setValue(element);
+		nd.setValue(key);
 		size++;
-		System.out.println(element);
 
 		/**
 		 * check if the list is empty
@@ -38,41 +39,7 @@ public class SinglyLinkedList<T> {
 		return null;
 	}
 
-	public void deleteAfter(T key) {
-
-		Node<T> tmp = head;
-		Node<T> refNode = null;
-		System.out.println("Traversing to all nodes..");
-		/**
-		 * Traverse till given element
-		 */
-		while (true) {
-			if (tmp == null) {
-				break;
-			}
-			if (tmp.compareTo(key) == 0) {
-				// found the target node, add after this node
-				refNode = tmp;
-				break;
-			}
-			tmp = tmp.getNextRef();
-		}
-		if (refNode != null) {
-			tmp = refNode.getNextRef();
-			refNode.setNextRef(tmp.getNextRef());
-			if (refNode.getNextRef() == null) {
-				tail = refNode;
-			}
-			System.out.println("Deleted: " + tmp.getValue());
-		} else {
-			System.out.println("Unable to find the given element...");
-		}
-	}
-
-	public void delete(String key) {
-
-	}
-
+	
 	public void traverse() {
 
 		Node<T> tmp = head;
@@ -86,43 +53,75 @@ public class SinglyLinkedList<T> {
 
 	}
 
-	public void remove(T item) {
-		Node<T> n = head;
-		Node<T> prev = null;
-		if (head.key.equals(item)) {
-			head = head.getNextRef();
-			size -= 1;
-			return;
+	public void get() {
+
+		Node<T> tmp = head;
+		int k = 0;
+		while (true) {
+			if (tmp == null) {
+				break;
+			}
+			str[k] = String.valueOf(tmp.getValue());
+			k++;
+			tmp = tmp.getNextRef();
 		}
-		while (!n.key.equals(item)) {
-			prev = n;
-			n = n.getNextRef();
-		}
-		n = n.getNextRef();
-		prev.setNextRef(prev.getNextRef());
-		n = null;
-		size -= 1;
 	}
 
-	public boolean searchKey(SinglyLinkedList<String> list, String key) {
+	public SinglyLinkedList<T> searchKey(SinglyLinkedList<T> list, String key) {
 		Node current = head;
 		boolean status = false;
-		while (current != null) {
-			for (int i = 0; i < list.size; i++) {
-				if (list.equals(key)) {
-					System.out.println("Element is present in the list ");
-					//status = true;
-					break;
-				} else
-				{
-					current = current.getNextRef();
+		for (int i = 0; i < str.length - 1; i++) {
+			if (str[i] != null && str[i].equals(key)) {
+				status = true;
+				str[i] = null;
+				current = current.getNextRef();
+				break;
 			}
-			
 		}
+		for (int i = 0; i < str.length; i++) {
+			if (str[i] != null)
+				newList.addElement(str[i]);
+		}
+		if (status) {
+			System.out.println("Element is present in the list ");
+		} else {
 			System.out.println("Element is not present in the list ");
-		return false;
+			newList.addElement(key);
+		}
+
+		return newList;
 	}
-		return status;
+	
+	public SinglyLinkedList<T> bubble(SinglyLinkedList<T> list,int size) {
+		Node next,currentNode;
+		
+		if (size > 1) {
+            for (int i = 0; i < size; i++ ) {
+                 currentNode = head;
+                 next = head.getNextRef();
+                for (int j = 0; j < size - 1; j++) {
+                    if (currentNode.getValue().compareTo(next.getValue())>0) {
+                        Node temp = currentNode;
+                        currentNode = next;
+                        next = temp;
+                    } 
+                    currentNode = next;
+                    next = next.getNextRef();                   
+                } 
+            
+            }}
+		}
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	}
-}
+
+	
+	
+
+
+
+
+

@@ -4,15 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-
-import com.bridgelabs.functionalutil.DataStructureUtil;
+import com.bridgelabs.functionalutil.AlgorithmUtil;
 import com.bridgelabs.functionalutil.SinglyLinkedList;
 
-public class UnorderedList {
-	@SuppressWarnings("resource")
+public class OrderedList {
 	public static void main(String[] args) throws Exception {
-		SinglyLinkedList<String> list = new SinglyLinkedList<String>();
-		File file = new File("C:\\Users\\LENOVO\\list.txt");
+		int n;
+		SinglyLinkedList<Integer> list = new SinglyLinkedList<Integer>();
+		File file = new File("C:\\Users\\LENOVO\\list1.txt");
 		BufferedReader bufferreader = new BufferedReader(new FileReader(file));
 		String[] array = new String[50];
 		String delimitor = " ";
@@ -20,18 +19,12 @@ public class UnorderedList {
 		while ((st = bufferreader.readLine()) != null) {
 			array = st.split(delimitor);
 		}
+		list.traverse();
 		for (String k : array) {
 			list.addElement(k);
 		}
-		
-		list.traverse();  
-		list.get(); 
-		System.out.println("Enter key value:");
-		String key = DataStructureUtil.inputString();
-		
-		SinglyLinkedList newList=list.searchKey(list, key);
-		     
-		newList.traverse();  
-		 }
-
+	    n=list.size();
+       list.bubble(list, n);
+       list.traverse();
+}
 }
