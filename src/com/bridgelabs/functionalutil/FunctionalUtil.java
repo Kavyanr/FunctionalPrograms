@@ -96,16 +96,18 @@ public class FunctionalUtil {
 	}
 
 	//LEAP YEAR
-	public static void Checkyear(int year) {
+	public static boolean Checkyear(int year) {
+		boolean flag=false;
 		if (year>=1000)
 		{
 			if((year%400==0)||(year%4==0)&& (year%100!=0))
-				System.out.println("Given year is a leap year");
+		         return true;
 			else 
-				System.out.println("Given year is not a leap year");
+				return flag;
 		}
 		else
 			System.out.println("Enter 4 digit number");
+	return true;
 	}
 
 	//FLIPCOIN

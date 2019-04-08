@@ -23,7 +23,7 @@ public class AlgorithmUtil {
 	}
 
 	// GENERATING PRIME NUMBERS
-	public static void isPrime(int min, int max) {
+	public static List<Integer> isPrime(int min, int max) {
 		int i, count, k = 0;
 		List<Integer> list = new ArrayList<Integer>();
 		while (min <= max) {
@@ -44,8 +44,8 @@ public class AlgorithmUtil {
 			}
 			min++;
 		}
-		for (int kl : list)
-			System.out.println(kl + " ");
+		
+		return list;
 
 	}
 
@@ -230,16 +230,15 @@ public class AlgorithmUtil {
 	}
 
 	// DAYS OF WEEK
-	public static void dayOfWeek(int date, int month, int year) {
-		int y0 = year - (14 - month) / 12;
+	public static int dayOfWeek(int d, int m, int y)
+	{
+	    int y0 = y - (14-m) / 12;
+	    int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+	    int m0 = m + 12 * ((14-m) / 12) - 2;
+	    int d0 = (d + x + (31 * m0) / 12) % 7;
+	    return d0;
+	}   
 
-		int x = y0 + (y0 / 4) - (y0 / 100) + (y0 / 400);
-
-		int m0 = month + 12 * ((14 - month) / 12) - 2;
-
-		int d0 = ((date + x + (31 * m0)) / 12) % 7;
-		System.out.println("Day of the week: " + d0);
-	}
 
 	// SWAP NIBBLES
 	public static int swapNibbles(int x) {
@@ -314,4 +313,40 @@ public class AlgorithmUtil {
 		return low;
 	}
 
+	public static boolean Anagram(String str1,String str2) {
+		char[] array1=str1.toCharArray();
+		char temp1,temp2;
+		char[] array2=str2.toCharArray();
+		int len1=str1.length();
+		int len2=str2.length();
+		if(len1!=len2) {
+			return false;
+		}
+		else{
+			for(int i=0;i<len1;i++){
+				for(int j=0;j<len1-1;j++){
+					if(array1[j]>array1[j+1]){
+						temp1=array1[j];
+						array1[j]=array1[j+1];
+						array1[j+1]=temp1;
+					}
+				}
+			}
+			for(int i=0;i<len2;i++){
+				for(int j=0;j<len2-1;j++){
+					if(array2[j]>array2[j+1]){
+						temp2=array2[j];
+						array2[j]=array2[j+1];
+						array2[j+1]=temp2;
+					}
+				}
+			}
+			str1=String.valueOf(array1);
+			str2=String.valueOf(array2);
+			if(str1.equals(str2))
+				return true;
+			else
+				return false;
+		}	
+	}
 }

@@ -7,8 +7,11 @@ public class LeapYear {
 	{
 		System.out.println("Enter the year");
          int year=FunctionalUtil.inputInteger();
-         FunctionalUtil.Checkyear(year);
-        
+          boolean result= FunctionalUtil.Checkyear(year);
+          if(true)
+ 		System.out.println("Given year is a leap year");
+          else
+        	  System.out.println("Given year is not a leap year");
 	}
-	
-}
+	}	
+

@@ -19,7 +19,7 @@ public class SinglyLinkedList<T> {
 
 	public String addElement(String key) {
 		Node<T> nd = new Node<T>();
-		nd.setValue(key);
+		nd.setValue((T) key);
 		size++;
 
 		/**
@@ -39,7 +39,6 @@ public class SinglyLinkedList<T> {
 		return null;
 	}
 
-	
 	public void traverse() {
 
 		Node<T> tmp = head;
@@ -51,6 +50,17 @@ public class SinglyLinkedList<T> {
 			tmp = tmp.getNextRef();
 		}
 
+	}
+
+	@Override
+	public String toString() {
+		Node<T> temp = head;
+		String elements = "";
+		while (temp.getNextRef() != null) {
+			elements += " " + temp.getValue() + " ";
+			temp = temp.getNextRef();
+		}
+		return elements + temp.getValue();
 	}
 
 	public void get() {
@@ -68,9 +78,10 @@ public class SinglyLinkedList<T> {
 	}
 
 	public SinglyLinkedList<T> searchKey(SinglyLinkedList<T> list, String key) {
-		Node current = head;
+		Node<T> current = head;
 		boolean status = false;
-		for (int i = 0; i < str.length - 1; i++) {
+
+		for (int i = 0; i <= str.length - 1; i++) {
 			if (str[i] != null && str[i].equals(key)) {
 				status = true;
 				str[i] = null;
@@ -91,31 +102,6 @@ public class SinglyLinkedList<T> {
 
 		return newList;
 	}
-	
-	public SinglyLinkedList<T> bubble(SinglyLinkedList<T> list,int size) {
-		Node next,currentNode;
-		
-		if (size > 1) {
-            for (int i = 0; i < size; i++ ) {
-                 currentNode = head;
-                 next = head.getNextRef();
-                for (int j = 0; j < size - 1; j++) {
-                    if (currentNode.getValue().compareTo(next.getValue())>0) {
-                        Node temp = currentNode;
-                        currentNode = next;
-                        next = temp;
-                    } 
-                    currentNode = next;
-                    next = next.getNextRef();                   
-                } 
-            
-            }}
-		}
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	}
 
 	

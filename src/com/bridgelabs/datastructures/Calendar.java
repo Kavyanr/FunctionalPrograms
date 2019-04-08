@@ -1,25 +1,11 @@
 package com.bridgelabs.datastructures;
 
+import com.bridgelabs.functionalutil.AlgorithmUtil;
+import com.bridgelabs.functionalutil.FunctionalUtil;
 
-
-public class Calendar { 
-
-	    public static int day(int month, int day, int year) {
-	        int y = year - (14 - month) / 12;
-	        int x = y + y/4 - y/100 + y/400;
-	        int m = month + 12 * ((14 - month) / 12) - 2;
-	        int d = (day + x + (31*m)/12) % 7;
-	        return d;
-	    }
-
-	   
-	    public static boolean isLeapYear(int year) {
-	        if  ((year % 4 == 0) && (year % 100 != 0)) return true;
-	        if  (year % 400 == 0) return true;
-	        return false;
-	    }
-
-	    public static void main(String[] args) {
+public class Calendar
+{ 
+         public static void main(String[] args) {
 	        int month = Integer.parseInt(args[0]);    
 	        int year = Integer.parseInt(args[1]);    
 
@@ -37,7 +23,7 @@ public class Calendar {
 	        };
 
 	        
-	        if (month == 2 && isLeapYear(year)) days[month] = 29;
+	        if (month == 2 && FunctionalUtil.Checkyear(year)) days[month] = 29;
 
 
 	        
@@ -45,14 +31,14 @@ public class Calendar {
 	        System.out.println(" S  M Tu  W Th  F  S");
 
 	       
-	        int d = day(month, 1, year);
+	        int date= AlgorithmUtil.dayOfWeek(1,month,year);
 
 	        
-	        for (int i = 0; i < d; i++)
+	        for (int i = 0; i < date; i++)
 	            System.out.print("   ");
 	        for (int i = 1; i <= days[month]; i++) {
 	            System.out.printf("%2d ", i);
-	            if (((i + d) % 7 == 0) || (i == days[month])) System.out.println();
+	            if (((i + date) % 7 == 0) || (i == days[month])) System.out.println();
 	        }
 
 	    }

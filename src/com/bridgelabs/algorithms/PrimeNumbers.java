@@ -1,4 +1,7 @@
 package com.bridgelabs.algorithms;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.bridgelabs.functionalutil.AlgorithmUtil;
 
 public class PrimeNumbers {
@@ -10,6 +13,9 @@ public class PrimeNumbers {
 		System.out.println("Enter the ending number");
 		int max=AlgorithmUtil.inputinteger();
 		System.out.println("Generated prime numbers between "+min+ " and "+ max+ "  are:");
-		AlgorithmUtil.isPrime(min, max);
+		List<Integer> list = new ArrayList<Integer>();
+		list=AlgorithmUtil.isPrime(min, max);
+		for (int kl : list)
+			System.out.print(kl + " ");
 	}
 }
