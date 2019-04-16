@@ -21,7 +21,7 @@ public class UnorderedList {
 			array = st.split(delimitor);
 		}
 		for (String k : array) {
-			list.addElement(k);
+			list.add(k);
 		}
 		list.traverse();  
 		list.get(); 

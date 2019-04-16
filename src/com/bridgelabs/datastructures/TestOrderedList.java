@@ -14,6 +14,7 @@ public class TestOrderedList {
 	public static void main(String[] args) throws IOException {
 		SinglyLinkedList<String> list = new SinglyLinkedList<String>();
 		File file = new File("C:\\Users\\LENOVO\\list1.txt");
+		@SuppressWarnings("resource")
 		BufferedReader bufferreader = new BufferedReader(new FileReader(file));
 		String[] array = new String[50];
 
@@ -23,7 +24,7 @@ public class TestOrderedList {
 		}
 		bubbleSort(array);
 		for (String k : array) {
-			list.addElement(k);
+			list.add(k);
 
 		}
 

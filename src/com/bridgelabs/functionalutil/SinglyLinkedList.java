@@ -1,43 +1,63 @@
 package com.bridgelabs.functionalutil;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 public class SinglyLinkedList<T> {
 	private Node<T> head;
 	private Node<T> tail;
 	private int size = 0;
 	private String key;
 	static String[] str = new String[100];
+	@SuppressWarnings("rawtypes")
 	static SinglyLinkedList newList = new SinglyLinkedList();
 
 	public boolean isEmpty() {
 		return head == null;
 	}
 
-	public String addElement(String key) {
+	public int size() {
+		Node<T> tnode = head;
+		int len = 0;
+		while (tnode != null) {
+			len++;
+			tnode = tnode.getNextRef();
+		}
+		return len;
+	}
+	
+	public void add(T data) {
 		Node<T> nd = new Node<T>();
-		nd.setValue((T) key);
-		size++;
 
-		/**
-		 * check if the list is empty
-		 */
+		nd.setValue(data);
+
+		System.out.println("Adding: " + data);
 		if (isEmpty()) {
-			// since there is only one element, both head and
-			// tail points to the same object.
 			head = nd;
 			tail = nd;
 		} else {
-			// set current tail next link to new node
 			tail.setNextRef(nd);
-			// set tail as newly created node
 			tail = nd;
 		}
-		return null;
 	}
+//	public String addElement(String key) {
+//		Node<T> nd = new Node<T>();
+//		nd.setValue((T) key);
+//		size++;
+//
+//		/**
+//		 * check if the list is empty
+//		 */
+//		if (isEmpty()) {
+//			// since there is only one element, both head and
+//			// tail points to the same object.
+//			head = nd;
+//			tail = nd;
+//		} else {
+//			// set current tail next link to new node
+//			tail.setNextRef(nd);
+//			// set tail as newly created node
+//			tail = nd;
+//		}
+//		return null;
+//	}
 
 	public void traverse() {
 
@@ -77,6 +97,7 @@ public class SinglyLinkedList<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public SinglyLinkedList<T> searchKey(SinglyLinkedList<T> list, String key) {
 		Node<T> current = head;
 		boolean status = false;
@@ -91,17 +112,88 @@ public class SinglyLinkedList<T> {
 		}
 		for (int i = 0; i < str.length; i++) {
 			if (str[i] != null)
-				newList.addElement(str[i]);
+				newList.add(str[i]);
 		}
 		if (status) {
 			System.out.println("Element is present in the list ");
 		} else {
 			System.out.println("Element is not present in the list ");
-			newList.addElement(key);
+			newList.add(key);
 		}
 
 		return newList;
 	}
+	
+	public int[] convertIntArray(String[] arr) {
+		int[] arrInt = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			arrInt[i] = Integer.valueOf(arr[i]);
+		}
+		return arrInt;
+	}
+
+	public int[] sort(int[] array) {
+		int temp;
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array.length - 1; j++) {
+				if (array[j] > array[j + 1]) {
+					temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
+				}
+			}
+		}
+		return array;
+	}
+	public static <T extends Comparable<T>> T[] inserstionSort(T[] array) {
+		for (int i = 1; i < array.length; i++) {
+			for (int j = i; j > 0; j--) {
+				if (array[j].compareTo(array[j - 1]) < 0) {
+					T temp = array[j];
+					array[j] = array[j - 1];
+					array[j - 1] = temp;
+				} else
+					break;
+			}
+		}
+		for (int k = 0; k < array.length; k++) {
+			System.out.println(array[k]);
+		}
+		return array;
+	}
+	
+	public void printList() {
+		Node<T> tnode = head;
+		while (tnode != null) {
+			System.out.print(tnode.getValue() + " ");
+			tnode = tnode.getNextRef();
+		}
+	}
+	
+	public String[] convArray(String[] array) {
+		Node<T> tnode = head;
+		int i = 0;
+		while (tnode != null) {
+			array[i] = String.valueOf(tnode.getValue());
+			tnode = tnode.getNextRef();
+			i++;
+		}
+		return array;
+	}
+	
+	public boolean search(T data) {
+		Node<T> temp = head;
+
+		while (temp.getNextRef() != null) {
+
+			if (data.equals(temp.getValue())) {
+				return true;
+			}
+			temp = temp.getNextRef();
+		}
+		return false;
+	}
+	
 	}
 
 	

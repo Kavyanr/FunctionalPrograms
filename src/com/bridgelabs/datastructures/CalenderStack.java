@@ -28,7 +28,7 @@ public class CalenderStack {
                 refqueue.insert(i);
                 if (((i + dayofWeek) % 7 == 0 || i==days[month]) ) {
                     stack.push(refqueue);
-                    refqueue=new QueueLinkedList<Integer>();
+                    refqueue=new QueueLinkedList<>();
                     continue;
                 }
             }    

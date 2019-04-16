@@ -1,0 +1,34 @@
+{
+	"Patient" :[
+		{
+			"id" : 1,
+			"name" : "Ramu",
+			"mobileNo" :9983547674,
+			"age" : 48
+         },
+		{
+			"id" : 2,
+			"name" : "John",
+			"mobileNo" :9912936573,
+			"age" : 62
+        },
+        {
+			"id" : 3,
+			"name" : "Albert",
+			"mobileNo" :8034628123,
+			"age" : 89
+        },
+         {
+			"id" :4,
+			"name" : "Mahima",
+			"mobileNo" :9983521674,
+			"age" : 35
+        },
+         {
+			"id" :5,
+			"name" : "Dinga",
+			"mobileNo" :9983549434,
+			"age" : 57
+        }
+]
+}

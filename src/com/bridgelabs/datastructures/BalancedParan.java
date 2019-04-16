@@ -2,13 +2,15 @@
 package com.bridgelabs.datastructures;
 
 import com.bridgelabs.functionalutil.DataStructureUtil;
-import com.bridgelabs.functionalutil.StackImplementation;
+import com.bridgelabs.functionalutil.StackLinkedList;
 
 public class BalancedParan  
 { 
-    public static void main(String[] args)  
+    @SuppressWarnings("rawtypes")
+	public static void main(String[] args)  
     { 
-    	 StackImplementation st=new StackImplementation(); 
+    	 @SuppressWarnings("unused")
+		StackLinkedList st=new StackLinkedList(); 
     	 System.out.println("Enter expression: ");
     	String input=DataStructureUtil.inputString();
      char[] ch= input.toCharArray();

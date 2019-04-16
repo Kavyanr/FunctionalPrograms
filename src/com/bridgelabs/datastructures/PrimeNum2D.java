@@ -12,7 +12,6 @@ public class PrimeNum2D {
 			int end=100;
 			for(int i=0;i<10;i++){
 				List<Integer> listofPrimeNumbers = AlgorithmUtil.isPrime(start, end);
-				
 				a1.add(listofPrimeNumbers);
 				start+=100;
 				end+=100;

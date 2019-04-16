@@ -1,24 +1,23 @@
 package com.bridgelabs.datastructures;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-
 import java.util.Map;
-
-import com.bridgelabs.functionalutil.CustomLinkedList;
+import com.bridgelabs.functionalutil.SinglyLinkedList;
 
 
 public class HashNumber {
 
 	public static void main(String[] args) throws IOException 
 	{
-		CustomLinkedList<Integer> ds = new CustomLinkedList<>();
-	 CustomLinkedList<Integer> ds1 = null;
+		SinglyLinkedList<Integer> ds = new SinglyLinkedList<>();
+		SinglyLinkedList<Integer> ds1 = null;
 
-		Map<Integer,CustomLinkedList<Integer>> map = new HashMap<Integer, CustomLinkedList<Integer>>();
+		Map<Integer, SinglyLinkedList<Integer>> map = new HashMap<Integer, SinglyLinkedList<Integer>>();
 		for (int i = 0; i <= 10; i++) {
-			ds1 = new com.bridgelabs.functionalutil.CustomLinkedList<>();
+			ds1 = new com.bridgelabs.functionalutil.SinglyLinkedList<>();
 			map.put(i, ds1);
 		}
 		FileReader fr = new FileReader("C:\\Users\\LENOVO\\map.txt");
@@ -67,7 +66,7 @@ public class HashNumber {
 		}
 
 		for (int i = 0; i < map.size(); i++) {
-			CustomLinkedList<Integer> list = map.get(i);
+			SinglyLinkedList<Integer> list = map.get(i);
 			System.out.print(i + "--> ");
 			list.printList();
 			System.out.println();

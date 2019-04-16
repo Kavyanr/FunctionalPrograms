@@ -1,14 +1,12 @@
 package com.bridgelabs.datastructures;
 
 import com.bridgelabs.functionalutil.AlgorithmUtil;
-import com.bridgelabs.functionalutil.DataStructureUtil;
-import com.bridgelabs.functionalutil.Dequeue;
-import com.bridgelabs.functionalutil.NodeDequeue;
+import com.bridgelabs.functionalutil.Node;
 public class Palindrome {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		NodeDequeue<Character> node = new NodeDequeue<Character>();
+		Node<Character> node = new Node<Character>();
 
 		System.out.println("Enter a String: ");
 		String input = AlgorithmUtil.inputString();

@@ -1,16 +1,16 @@
 package com.bridgelabs.functionalutil;
-public class Dequeue<E> {
+public class Dequeue<T> {
 
-	public E data;
-	public Dequeue<E> next;
-	public Dequeue<E> pre;
+	public T data;
+	public Dequeue<T> next;
+	public Dequeue<T> pre;
 
 	public Dequeue() {
 		this.next = null;
 		this.pre = null;
 	}
 
-	public Dequeue(E val) {
+	public Dequeue(T val) {
 		this.data = val;
 		this.next = null;
 		this.pre = null;

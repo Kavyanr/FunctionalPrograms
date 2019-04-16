@@ -56,10 +56,10 @@ public class DataStructureUtil {
 			return false;
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static boolean areParenthesisBalanced(char[] ch) {
 
-		StackImplementation st = new StackImplementation();
+		StackLinkedList st = new StackLinkedList();
 
 		for (int i = 0; i < ch.length; i++) {
 			if (ch[i] == '{' || ch[i] == '(' || ch[i] == '[')
@@ -71,7 +71,7 @@ public class DataStructureUtil {
 					return false;
 				}
 
-				else if (!isMatchingPair(st.pop(), ch[i])) {
+				else if (!isMatchingPair((char) st.pop(), ch[i])) {
 					return false;
 				}
 			}
@@ -84,6 +84,8 @@ public class DataStructureUtil {
 			return false;
 		}
 	}
+
+	
 
 	/**
 	 * static function to print the prime numbers for the given range
@@ -174,7 +176,7 @@ public class DataStructureUtil {
 	        } else {
 	            System.out.println("Numbers which are prime but not anagram are:"+aList.size());
 	            System.out.println();
-	            for (int j = 0; j < aList.size(); j++) {
+	            for (int j = 1; j < aList.size(); j++) {
 	                System.out.print(aList.get(j) + " ");
 	            }
 	        }

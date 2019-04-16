@@ -3,6 +3,10 @@ package com.bridgelabs.functionalutil;
 public class QueueLinkedList<T> {
 	public Node<T> front,rear;
 	public int size=0;
+	public int capacity = 20;
+	private Object queue[] = new Object[capacity];
+	
+	
 
 	/**
 	* Constructor to initialize the instance variables of
@@ -81,5 +85,7 @@ public class QueueLinkedList<T> {
 	tNode=tNode.getNextRef();
 	}}}
 
+	
+	
 
 }
