@@ -1,0 +1,28 @@
+[
+	{
+		"shareName": "anu",
+		"numberOfShare": 3.0,
+		"sharePrice": 6500.0
+	},
+	{
+		"shareName": "chaitra",
+		"numberOfShare": 25.0,
+		"sharePrice": 1000.0
+    },
+	{
+		"shareName": "vinu",
+		"numberOfShare": 4.0,
+		"sharePrice": 2800.0
+	},
+	{
+		"shareName": "abhi",
+		"numberOfShare": 3.0,
+		"sharePrice": 30000.0
+	},
+	{
+		"shareName": "vishek",
+		"numberOfShare": 3.0,
+		"sharePrice": 5000.0
+	}
+	
+]

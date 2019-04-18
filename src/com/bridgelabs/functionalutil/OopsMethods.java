@@ -18,6 +18,10 @@ public class OopsMethods {
 		return scanner.nextDouble();
 	}
 
+	public static long inputLong()
+	{
+		return scanner.nextLong();
+	}
 	public static char inputChar() {
 		return scanner.next().charAt(0);
 	}

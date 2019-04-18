@@ -15,7 +15,7 @@ public class DeckOfCardsImpl implements DeckOfCardsInterface{
 
 		for (int i = 0; i < ranks.length; i++) {
 			for (int j = 0; j < suits.length; j++) {
-				deck[suits.length * i + j] = ranks[i] + " of " + suits[j];
+				deck[suits.length * i + j] = ranks[i] + "" + suits[j];
 			}
 		}
 	}
@@ -48,12 +48,17 @@ public class DeckOfCardsImpl implements DeckOfCardsInterface{
 	{
 		
 		for (int i = 0; i < 4; i++) {
-			System.out.println("----- Person " + (i + 1) + " -----");
-			for (int j = 0; j < 9; j++) {
-				System.out.println(deck[i + j * 4] + " (Card " + (i + j * 4) + ")");
-			}
+			System.out.print(" Person " + i  + " \t");
 		}
-
+			System.out.print("\n");
+			for( int i=0;i<9;i++)
+			{
+			for (int j = 0; j < 4; j++) {
+				System.out.print(" " + (deck[i + j * 4]) + " \t");
+			}
+			System.out.println();
+		}
+		
 	}
-	
+
 	}

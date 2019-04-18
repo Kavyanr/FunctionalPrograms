@@ -1,0 +1,47 @@
+[
+    {
+        "firstName": "Rajmathe",
+        "lastName": "surasundarangi",
+        "address": "Kollegala",
+        "city": "bramhavara",
+        "state": "Karnataka",
+        "phonenumber": 1234567889222,
+        "zipCode": 101
+    },
+    {
+        "firstName": "Deenar",
+        "lastName": "dariyappa",
+        "address": "dandupalya",
+        "city": "dangu",
+        "state": "Karnataka",
+        "phonenumber": 1234567889,
+        "zipCode": 1000
+    },
+    {
+        "firstName": "Kavya",
+        "lastName": "Mariyamma",
+        "address": "kalburgi",
+        "city": "kalpavara",
+        "state": "Karnataka",
+        "phonenumber": 12345678891,
+        "zipCode": 1245
+    },
+    {
+        "firstName": "Anu",
+        "lastName": "Kavya",
+        "address": "Bangalore",
+        "city": "Rajmathe",
+        "state": "Mysore",
+        "phonenumber": 1234567898,
+        "zipCode": 213211
+    },
+    {
+        "firstName": "Anu",
+        "lastName": "Kavya",
+        "address": "Bangalore",
+        "city": "Rajmathe",
+        "state": "Mysore",
+        "phonenumber": 1234567898,
+        "zipCode": 213211
+    }
+]
