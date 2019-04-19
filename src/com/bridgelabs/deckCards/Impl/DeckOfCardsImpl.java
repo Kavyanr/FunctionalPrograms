@@ -25,8 +25,7 @@ public class DeckOfCardsImpl implements DeckOfCardsInterface{
 	public void shuffleDeck() {
 		for (int i = 0; i < n; i++) {
 			double rand = (Math.random());
-			// System.out.println(rand);
-
+			
 			int r = i + (int) (rand * (n - i));
 			String temp = deck[r];
 			deck[r] = deck[i];
@@ -35,15 +34,8 @@ public class DeckOfCardsImpl implements DeckOfCardsInterface{
 
 	}
 
-	// print shuffled deck
-	@Override
-	public void printDeck()
-		{
-		    for (int i = 0; i < n; i++) {
-			System.out.println(deck[i]);
-		}
-		}
 
+@Override
 	public void totalDeck()
 	{
 		
@@ -51,10 +43,12 @@ public class DeckOfCardsImpl implements DeckOfCardsInterface{
 			System.out.print(" Person " + i  + " \t");
 		}
 			System.out.print("\n");
+			int k=0;
 			for( int i=0;i<9;i++)
 			{
 			for (int j = 0; j < 4; j++) {
-				System.out.print(" " + (deck[i + j * 4]) + " \t");
+				System.out.print(" " + (deck[k]) + " \t");
+				k++;
 			}
 			System.out.println();
 		}

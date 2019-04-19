@@ -112,7 +112,7 @@ public class AlgorithmUtil {
 	}
 	// BUBBLE SORT
 
-	public static <T extends Comparable<T>> void BubbleSort(T[] array) {
+	public static <T extends Comparable<T>> T[] BubbleSort(T[] array) {
 		int i;
 		int n = array.length;
 		for (i = 0; i < n - 1; i++) {
@@ -127,6 +127,7 @@ public class AlgorithmUtil {
 		for (i = 0; i < n; i++) {
 			System.out.println(array[i] + " ");
 		}
+		return array;
 	}
 
 	// BINARY SEARCH

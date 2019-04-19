@@ -5,6 +5,6 @@ public interface DeckOfCardsInterface {
 	
 	   void initDeck();
 	   void shuffleDeck();
-	   void printDeck();
-
+	  
+       void totalDeck();
 }

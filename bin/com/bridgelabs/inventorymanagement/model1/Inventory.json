@@ -1,0 +1,19 @@
+{  
+   "listOfInventories ":[  
+      {  
+         "name":"rice",
+         "weight":23,
+         "price":54
+      },
+      {  
+         "name":"wheat",
+         "weight":16,
+         "price":48
+      },
+      {  
+         "name":"pulses",
+         "weight":17,
+         "price":60
+      }
+   ]
+}
