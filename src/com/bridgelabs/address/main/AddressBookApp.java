@@ -16,7 +16,6 @@ public class AddressBookApp {
 		
 		AddressBookService details=new AddressBookServiceImplementation();
 		
-		details.fileRead();
 		System.out.println("Enter 1-->add person \t  2-->remove person \t 3-->Sort by last name \t 4-->sort by zipcode :" );
 		int input=DataStructureUtil.inputinteger();
 		switch(input)
@@ -40,7 +39,6 @@ public class AddressBookApp {
 			Long zipCode=OopsMethods.inputLong();
 			
 			details.addPerson(firstName, lastName, zipCode, phoneNumber, city, state, address);
-			details.writeFile();
 			break;
 		}
 		case 2:{

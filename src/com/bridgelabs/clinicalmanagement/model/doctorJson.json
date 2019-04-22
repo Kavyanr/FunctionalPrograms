@@ -1,37 +1,23 @@
-{
-	"Doctors" :[
-		{
-			"id" : 1,
-			"name" : "Ashwini",
-			"specialisation" : "Cardiologist",
-			"Availability" : "10 AM"
-		},
-		{
-			"id" : 2,
-			"name" : "Nidhi",
-			"specialisation" : "Gynecologist",
-			"Availability" : "1 PM"
-			
-		},
-		{
-			
-			"id" : 3,
-			"name" : "Kavya",
-			"specialisation" : "Dermotologist",
-			"Availability" : "5 PM"
-			
-		},
-		{
-			"id" : 4,
-			"name" : "Ranjitha",
-			"specialisation" : "Neurologist",
-			"Availability" : " 8 PM"
-		},
-		{
-			"id" : 5,
-			"name" : "Deenar",
-			"specialisation" : "Neurologist",
-			"Availability" : " 10:30 AM"
-		}
+[
+	{
+		"doctorName": "Asha",
+		"doctorId": 11,
+		"doctorSpecialization": "sergen",
+		"doctorAvailability": "AM",
+		"numberOfPatient": 5
+	},
+	{
+		"doctorName": "Poonam",
+		"doctorId": 12,
+		"doctorSpecialization": "physician",
+		"doctorAvailability": "PM",
+		"numberOfPatient": 0
+	},
+	{
+		"doctorName": "priya",
+		"doctorId": 13,
+		"doctorSpecialization": "sergen",
+		"doctorAvailability": "AM",
+		"numberOfPatient": 0
+	}
 ]
-}

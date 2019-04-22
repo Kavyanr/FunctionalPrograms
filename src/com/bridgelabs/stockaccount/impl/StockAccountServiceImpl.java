@@ -1,6 +1,5 @@
 package com.bridgelabs.stockaccount.impl;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -11,37 +10,38 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.bridgelabs.functionalutil.FileOperation;
 import com.bridgelabs.functionalutil.FunctionalUtil;
 import com.bridgelabs.stockaccount.data.StockAccountService;
 import com.bridgelabs.stockaccount.model.StockAccount;
 import com.google.gson.Gson;
 
 public class StockAccountServiceImpl implements StockAccountService {
-	List<StockAccount> stocks = new ArrayList<>();
-	StockAccount newStock = new StockAccount();
-
+	List<StockAccount> listOfStocks = new ArrayList<>();
+	StockAccount stockObject = new StockAccount();
+    JSONArray jsonArray;
 	public void createStockAccount() {
 		JSONParser parser = new JSONParser();
 
 		try {
-			Object obj = parser.parse(new FileReader("C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stockaccount\\model\\StockAccount.json"));
-			JSONObject jsonObject = (JSONObject) obj;
-			System.out.println(jsonObject);
+			String path="C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stockaccount\\model\\StockAccount.json";
+			Object object = parser.parse(	FileOperation.readFile(path));
+		JSONObject jsonObject = (JSONObject) object;
 			JSONArray jsonArray = (JSONArray) jsonObject.get("ShareHolders");
-
-			for (Object obj1 : jsonArray) {
+			
+			for (Object arrayObject : jsonArray) {
 				StockAccount parameters = new StockAccount();
-				String stockCompany = (String) ((JSONObject) obj1).get("stockCompany");
-				double noOfShares = (double) ((JSONObject) obj1).get("noOfShares");
-				double sharePrice = (double) ((JSONObject) obj1).get("sharePrice");
-				String date = (String) ((JSONObject) obj1).get("currentDateTime");
+				String stockCompany = (String) ((JSONObject) arrayObject).get("stockCompany");
+				double numberOfShares = (double) ((JSONObject) arrayObject).get("noOfShares");
+				double sharePrice = (double) ((JSONObject) arrayObject).get("sharePrice");
+				String date = (String) ((JSONObject) arrayObject).get("currentDateTime");
 
 				parameters.setStockCompany(stockCompany);
 
-				parameters.setNoOfShares(noOfShares);
+				parameters.setNoOfShares(numberOfShares);
 				parameters.setSharePrice(sharePrice);
 				parameters.setCurrentDateTime(date);
-				stocks.add(parameters);
+				listOfStocks.add(parameters);
 
 			}
 
@@ -52,7 +52,7 @@ public class StockAccountServiceImpl implements StockAccountService {
 
 	@Override
 	public double valueOf() {
-		stocks.forEach(stock -> {
+		listOfStocks.forEach(stock -> {
 			System.out.println("Gain of stocks on " + stock.getStockCompany() + " is "
 					+ (stock.getNoOfShares() * stock.getSharePrice()));
 		});
@@ -61,44 +61,44 @@ public class StockAccountServiceImpl implements StockAccountService {
 
 	public void buy(String stockCompany, double sharePrice) {
 
-		newStock.setStockCompany(stockCompany);
-		newStock.setSharePrice(sharePrice);
+		stockObject.setStockCompany(stockCompany);
+		stockObject.setSharePrice(sharePrice);
 
 		LocalDateTime currentDateTime = LocalDateTime.now();
-		newStock.setCurrentDateTime(currentDateTime.toString());
+		stockObject.setCurrentDateTime(currentDateTime.toString());
 
-		System.out
-				.println("You bought the stock" + newStock.getStockCompany() + "for" + " " + newStock.getSharePrice());
+		System.out.println("You bought the stock" + stockObject.getStockCompany() + "for" + " " + stockObject.getSharePrice());
 		System.out.println("Enter the number of shares ");
 		double noOfShares = FunctionalUtil.inputDouble();
-		newStock.setNoOfShares(noOfShares);
-		stocks.add(newStock);
-		stocks.forEach(stock -> System.out.println(stock.toString()));
+		stockObject.setNoOfShares(noOfShares);
+		listOfStocks.add(stockObject);
+		listOfStocks.forEach(stock -> System.out.println(stock.toString()));
 	}
 
 	@Override
 	public void sell(String stockCompany, double sharePrice) {
 
-		newStock.setStockCompany(stockCompany);
-		newStock.setSharePrice(sharePrice);
+		stockObject.setStockCompany(stockCompany);
+		stockObject.setSharePrice(sharePrice);
 
 		LocalDateTime currentDateTime = LocalDateTime.now();
-		newStock.setCurrentDateTime(currentDateTime.toString());
-		System.out.println(
-				"You are selling the stock" + newStock.getStockCompany() + "for" + " " + newStock.getSharePrice());
-		stocks.removeIf(inventory -> inventory.getStockCompany().equals(stockCompany));
+		stockObject.setCurrentDateTime(currentDateTime.toString());
+		System.out.println("You are selling the stock" + stockObject.getStockCompany() + "for" + " " + stockObject.getSharePrice());
+		listOfStocks.removeIf(inventory -> inventory.getStockCompany().equals(stockCompany));
 		System.out.println("Element successfully removed");
-		stocks.forEach(stock -> System.out.println(stock.toString()));
+		listOfStocks.forEach(stock -> System.out.println(stock.toString()));
 	}
 
 	@Override
 	public void save() {
 		Gson gson = new Gson();
-		String json = gson.toJson(stocks);
+		String json = gson.toJson(listOfStocks);
 		try {
-			FileWriter file = new FileWriter("C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stockaccount\\model\\StockAccount.json");
+			FileWriter file = new FileWriter(
+					"C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stockaccount\\model\\StockAccount.json");
 			file.write("{\"ShareHolders\":" + json + "}");
 			file.flush();
+			file.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -107,7 +107,7 @@ public class StockAccountServiceImpl implements StockAccountService {
 
 	@Override
 	public void printReport() {
-		stocks.forEach(stock -> System.out.println(stock.toString()));
+		listOfStocks.forEach(stock -> System.out.println(stock.toString()));
 	}
 
 }

@@ -1,34 +1,56 @@
-{
-	"Patient" :[
-		{
-			"id" : 1,
-			"name" : "Ramu",
-			"mobileNo" :9983547674,
-			"age" : 48
-         },
-		{
-			"id" : 2,
-			"name" : "John",
-			"mobileNo" :9912936573,
-			"age" : 62
-        },
-        {
-			"id" : 3,
-			"name" : "Albert",
-			"mobileNo" :8034628123,
-			"age" : 89
-        },
-         {
-			"id" :4,
-			"name" : "Mahima",
-			"mobileNo" :9983521674,
-			"age" : 35
-        },
-         {
-			"id" :5,
-			"name" : "Dinga",
-			"mobileNo" :9983549434,
-			"age" : 57
-        }
+[
+	{
+		"patientName": "Sarita",
+		"patientId": 11,
+		"patientMobNum": "12345",
+		"patientAge": 18
+	},
+	{
+		"patientName": "ram",
+		"patientId": 12,
+		"patientMobNum": "123450",
+		"patientAge": 19
+	},
+	{
+		"patientName": "kirn",
+		"patientId": 14,
+		"patientMobNum": "4567678890",
+		"patientAge": 21
+	},
+	{
+		"patientName": "sohail",
+		"patientId": 11,
+		"patientMobNum": "56456788",
+		"patientAge": 24
+	},
+	{
+		"patientName": "zeeshan",
+		"patientId": 12,
+		"patientMobNum": "45678909",
+		"patientAge": 24
+	},
+	{
+		"patientName": "shivraj",
+		"patientId": 13,
+		"patientMobNum": "43562890",
+		"patientAge": 24
+	},
+	{
+		"patientName": "sohail",
+		"patientId": 111,
+		"patientMobNum": "67578898",
+		"patientAge": 25
+	},
+	{
+		"patientName": "zeeshan",
+		"patientId": 112,
+		"patientMobNum": "54678990",
+		"patientAge": 24
+	},
+	{
+		"patientName": "shivraj",
+		"patientId": 113,
+		"patientMobNum": "56677890",
+		"patientAge": 24
+	}
 ]
-}

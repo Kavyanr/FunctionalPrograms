@@ -1,40 +1,37 @@
 package com.bridgelabs.inventory.model;
 
 public class Inventory {
-	
-	  private String name;
-	    private double weight;
-	    private double price;
 
-	    public String getName() {
-	        return name;
-	    }
+	private String name;
+	private double weight;
+	private double price;
 
-	    public void setName(String name) {
-	        this.name = name;
-	    }
+	public String getName() {
+		return name;
+	}
 
-	    public double getWeight() {
-	        return weight;
-	    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	    public void setWeight(double weight) {
-	        this.weight = weight;
-	    }
+	public double getWeight() {
+		return weight;
+	}
 
-	    public double getPrice() {
-	        return price;
-	    }
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
 
-	    public void setPrice(double price) {
-	        this.price = price;
-	    }
-	    
-	    @Override
-	    public String toString() {
-	        return   "name  : "+name+"\n"
-	                +"weight: "+weight+"\n"
-	                +"price : "+price+"\n" ;
-	    }
+	public double getPrice() {
+		return price;
+	}
 
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "name  : " + name + "\n" + "weight: " + weight + "\n" + "price : " + price + "\n";
+	}
 }

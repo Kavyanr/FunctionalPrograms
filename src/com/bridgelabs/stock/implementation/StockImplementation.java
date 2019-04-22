@@ -1,7 +1,5 @@
 package com.bridgelabs.stock.implementation;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,109 +10,79 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.bridgelabs.functionalutil.FileOperation;
 import com.bridgelabs.stock.data.StockInterface;
 import com.bridgelabs.stock.model.Stock;
 import com.google.gson.Gson;
 
 public class StockImplementation implements StockInterface {
-	
-	
+	public StockImplementation() {
+		readFile();
+	}
+
 	JSONArray jsonArray;
-	List<Stock> stocks = new ArrayList<>();
+	List<Stock> listOfStocks = new ArrayList<>();
 
-	JSONObject jobject = new JSONObject();
-	@Override
-	public void readFile() {
-		// TODO Auto-generated method stub
+	JSONObject jsonObject = new JSONObject();
+
+	private void readFile() {
 		JSONParser parser = new JSONParser();
-		{
-			
-				try {
-					jsonArray = (JSONArray) parser.parse(new FileReader("C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stock\\model\\Stock.json"));
-					System.out.println("====>>"+jsonArray);
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		String path = "C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stock\\model\\Stock.json";
+		try {
+			jsonArray = (JSONArray) parser.parse(FileOperation.readFile(path));
+			for (Object obj : jsonArray) {
+				Stock stockObject = new Stock();
 
-				for (Object obj : jsonArray) {
-					Stock stockk = new Stock();
+				jsonObject = (JSONObject) obj;
+				String shareName = (String) jsonObject.get("shareName");
+				double numberOfShares = ((Double) jsonObject.get("numberOfShare")).doubleValue();
+				double sharePrice = ((Double) jsonObject.get("sharePrice")).doubleValue();
+				stockObject.setShareName(shareName);
+				stockObject.setNumberOfShare(numberOfShares);
+				stockObject.setSharePrice(sharePrice);
 
-					jobject = (JSONObject) obj;
-					String shareName = (String) jobject.get("shareName");
-					double noofshare = ((Double) jobject.get("noOfShare")).doubleValue();
-					double shareprice = ((Double) jobject.get("sharePrice")).doubleValue();
-					stockk.setShareName(shareName);   //setWeight(weight);
-					stockk.setNumberOfShare(noofshare);
-					// System.out.println(inventory.getName());
-
-					// System.out.println(inventory.getWeight());
-					stockk.setSharePrice(shareprice);
-					// System.out.println(inventory.getPrice());
-					stocks.add(stockk);
-
-					//System.out.println(stockk.toString());
-				
-			} 
+				listOfStocks.add(stockObject);
+			}
+		} catch (IOException | ParseException e) {
+			e.printStackTrace();
+		}
 	}
-	}
-	
+
 	@Override
 	public void addStock(String stockName, double noOfShare, double sharePrice) {
-		// TODO Auto-generated method stub
-		Stock stoc = new Stock();
-		stoc.setShareName(stockName);
-		stoc.setNumberOfShare(noOfShare);
-		stoc.setSharePrice(sharePrice);
-		stocks.add(stoc);
-		//stocks.forEach(inventory1 -> System.out.println(inventory1.toString()));
+		Stock stockObject = new Stock();
+		stockObject.setShareName(stockName);
+		stockObject.setNumberOfShare(noOfShare);
+		stockObject.setSharePrice(sharePrice);
+		listOfStocks.add(stockObject);
+		writeFile();
 	}
 
 	@Override
 	public void calculateStock() {
-		// TODO Auto-generated method stub
-		stocks.forEach(stock -> System.out.println(
-				"Total price of " + stock.getShareName() + " is " +(stock.getNumberOfShare()*stock.getSharePrice())));
-	
-}
-	
+		listOfStocks.forEach(stock -> System.out.println("Total price of " + stock.getShareName() + " is "
+				+ (stock.getNumberOfShare() * stock.getSharePrice())));
+	}
 
-	
-
-	@Override
 	public void writeFile() {
-		
 		Gson gson = new Gson();
-		String json = gson.toJson(stocks);
-		
-
-		try(FileWriter file = new FileWriter("C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stock\\model\\Stock.json")){
+		String json = gson.toJson(listOfStocks);
+		try (FileWriter file = new FileWriter(
+				"C:\\Users\\LENOVO\\eclipse-workspace\\Bridgelabz\\src\\com\\bridgelabs\\stock\\model\\Stock.json")) {
 			file.write(json);
+			file.flush();
 			System.out.println("SuccessFully copied to JSON  Object to File......");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("\n JSON Object " + json);
 	}
 
 	@Override
 	public void calculateTotalStock() {
-		// TODO Auto-generated method stub
 		double sum = 0;
-		for (Stock stock : stocks)
-		{
+		for (Stock stock : listOfStocks) {
 			sum = sum + (stock.getSharePrice() * stock.getNumberOfShare());
 		}
 		System.out.println("Total profit of shareholder=" + sum);
-		
-		
-		
-		}
 	}
-	
+}

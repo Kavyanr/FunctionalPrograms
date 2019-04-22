@@ -1,35 +1,38 @@
 package com.bridgelabs.clinicalmanagement.model;
-
 public class Patient {
-	
-	private int id;
 	private String name;
-	private String mobileNo;
-	private String age;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	private int id;
+	private int mobileNumber;
+	private int age;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getMobileNo() {
-		return mobileNo;
+	public int getId() {
+		return id;
 	}
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getAge() {
+	public int getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(int mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	
 
+
+
+
+
 }
+

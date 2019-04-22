@@ -43,5 +43,15 @@
 		"name": "pulse",
 		"weight": 12.0,
 		"price": 72.0
+	},
+	{
+		"name": "rice23",
+		"weight": 33.0,
+		"price": 23.0
+	},
+	{
+		"name": "sdaf",
+		"weight": 32.0,
+		"price": 23.0
 	}
 ]

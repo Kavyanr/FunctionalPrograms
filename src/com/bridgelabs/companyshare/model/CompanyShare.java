@@ -7,7 +7,7 @@ import com.bridgelabs.functionalutil.CustomLinkedList;
 public class CompanyShare {
 
 	private String comapanyName;
-	private Long noOfShare;
+	private Long numberOfShares;
 	private List<CompanyShare> list;
 
 	public List<CompanyShare> getList() {
@@ -28,16 +28,16 @@ public class CompanyShare {
 	}
 
 	public Long getNoOfShare() {
-		return noOfShare;
+		return numberOfShares;
 	}
 
 	public Long setNoOfShare(Long noOfShare2) {
-		return this.noOfShare = noOfShare2;
+		return this.numberOfShares = noOfShare2;
 	}
 
 	@Override
 	public String toString() {
-		return "name  : " + comapanyName + "\n" + "number of share: " + noOfShare + "\n";
+		return "name  : " + comapanyName + "\n" + "number of share: " + numberOfShares + "\n";
 	}
 	
 }

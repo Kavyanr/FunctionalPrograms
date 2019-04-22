@@ -1,4 +1,4 @@
-package com.bridgelabs.clinicalmanagement.Main;
+package com.bridgelabs.clinicalmanagement.main;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
